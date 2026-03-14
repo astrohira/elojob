@@ -1,29 +1,25 @@
 import { useState, useEffect } from "react";
-import {
-  Shield,
-  Zap,
-  Lock,
-  HeadphonesIcon,
-  Star,
-  ChevronDown,
-  ChevronUp,
-  ExternalLink,
-  MessageCircle,
-  Users,
-  Trophy,
-} from "lucide-react";
+import { Shield, Zap, Lock, Headphones as HeadphonesIcon, Star, ChevronDown, ChevronUp, ExternalLink, MessageCircle, Users, Trophy } from "lucide-react";
+
+import IronRank from "@/assets/Iron_3_Rank.png";
+import BronzeRank from "@/assets/Bronze_3_Rank.png";
+import SilverRank from "@/assets/Silver_3_Rank.png";
+import GoldRank from "@/assets/Gold_3_Rank.png";
+import PlatinumRank from "@/assets/Platinum_3_Rank.png";
+import DiamondRank from "@/assets/Diamond_3_Rank.png";
+import AscendantRank from "@/assets/Ascendant_3_Rank.png";
 
 const GGMAX_BASE_URL = "https://ggmax.com.br/anuncio/elojob-valorant-v5mq7xto";
 const WHATSAPP_URL = "https://wa.me/5524999381822?text=Quero%20saber%20mais%20sobre%20o%20Elojob";
 
 const ranks = [
-  { name: "Ferro", <a href="/src/assets/Iron_3_Rank.png"></a> },
-  { name: "Bronze", color: "from-amber-700 to-amber-800", icon: "🥉" },
-  { name: "Prata", color: "from-gray-300 to-gray-400", icon: "🥈" },
-  { name: "Ouro", color: "from-yellow-400 to-yellow-500", icon: "🥇" },
-  { name: "Platina", color: "from-cyan-400 to-cyan-500", icon: "💎" },
-  { name: "Diamante", color: "from-purple-400 to-purple-500", icon: "💠" },
-  { name: "Ascendente", color: "from-emerald-400 to-emerald-500", icon: "⬆️" },
+  { name: "Ferro", image: IronRank },
+  { name: "Bronze", image: BronzeRank },
+  { name: "Prata", image: SilverRank },
+  { name: "Ouro", image: GoldRank },
+  { name: "Platina", image: PlatinumRank },
+  { name: "Diamante", image: DiamondRank },
+  { name: "Ascendente", image: AscendantRank },
 ];
 
 const services = [
@@ -245,8 +241,12 @@ export default function HomePage() {
                 key={rank.name}
                 className="group relative bg-gradient-to-b from-white/10 to-white/5 rounded-xl p-6 border border-white/10 hover:border-purple-500/50 transition-all hover-lift text-center"
               >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${rank.color} flex items-center justify-center text-3xl shadow-lg`}>
-                  {rank.icon}
+                <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                  <img
+                    src={rank.image}
+                    alt={`${rank.name} rank`}
+                    className="w-full h-full object-contain drop-shadow-lg"
+                  />
                 </div>
                 <h3 className="font-bold text-lg mb-3">{rank.name}</h3>
                 <a
